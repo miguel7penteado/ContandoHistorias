@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Século XX - Linha Temporal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Um mapa das transformações do século XX">
+    <meta name="author" content="Velberson">
+    <link rel="icon" href="assets/images/favicon.ico" />
+    <!-- Facebook sharing -->
+    <meta property="og:type" content="article" />
+	<meta property="og:title" content="Conheça essa História" />
+	<meta property="og:image" content="https://i.ytimg.com/vi/7t1SCC4CvNE/maxresdefault.jpg" />
+	<meta property="og:description" content="Uma viagem aos fatos do século XX que vão influenciar o século XXI" />
+    <!-- Stylesheets -->
+    <!-- StoryMaps JS -->
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css" />
+    <!-- App Custom Styles -->
+    <style>
+		html {
+		  -webkit-box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		}
+
+		*, *:before, *:after {
+		  -webkit-box-sizing: inherit;
+		  -moz-box-sizing: inherit;
+		  box-sizing: inherit;
+		}
+
+		html, 
+		body {
+			margin: 0;
+			padding: 0;    
+		}
+
+		html, 
+		body,
+		#storyMap {
+			height: 100%;
+			width: 100%;
+		}
+
+		/* story map container */
+		#storyMap {   
+			margin: 0 auto;    
+		}
+
+		/* story map menu bar */
+		.vco-menubar-button,
+		.vco-mobile .vco-menubar-button:hover,
+		/* map icons */
+		.vco-map .vco-mapmarker {
+			color: #fff;
+		}
+
+		.vco-menubar-button,
+		.vco-mobile .vco-menubar-button:hover {
+			background-color: #0b3c5d;    
+		}
+
+		.vco-menubar-button {    
+			-webkit-transition: background-color 0.2s ease-in-out;
+			-moz-transition: background-color 0.2s ease-in-out;
+			-o-transition: background-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		.vco-menubar-button:hover,
+		.vco-menubar-button:focus,
+		.vco-layout-landscape .vco-storyslider .vco-slidenav-next .vco-slidenav-icon:hover:before, 
+		.vco-layout-landscape .vco-storyslider .vco-slidenav-previous .vco-slidenav-icon:hover:before,
+		.vco-layout-landscape .vco-storyslider .vco-slidenav-next .vco-slidenav-icon:focus:before, .vco-layout-landscape .vco-storyslider .vco-slidenav-previous .vco-slidenav-icon:focus:before,
+		.vco-mobile .vco-menubar-button:active {
+			background-color: #d9b310;
+		}
+
+		.vco-storymap p a {
+			color: #00e;
+			text-decoration: underline;
+		}
+
+		.vco-map .vco-mapmarker-icon:after {
+			content: url(../images/pamagic-marker.png);
+		}
+
+		/* before and after buttons */
+		.vco-layout-landscape .vco-storyslider .vco-slidenav-next .vco-slidenav-icon:before, 
+		.vco-layout-landscape .vco-storyslider .vco-slidenav-previous .vco-slidenav-icon:before {
+			background-color: #0b3c5d;
+			-webkit-transition: background-color 0.2s ease-in-out;
+			-moz-transition: background-color 0.2s ease-in-out;
+			-o-transition: background-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		.vco-mobile .vco-layout-landscape .vco-storyslider .vco-slidenav-next,
+		.vco-mobile .vco-layout-landscape .vco-storyslider .vco-slidenav-previous {
+			display: none !important;
+		}
+
+		/* tour points text */
+		div.vco-storymap.vco-mobile.vco-layout-landscape > div.vco-storyslider.vco-storyslider {
+			z-index: 1500;    
+		}
+
+		.vco-slide-content {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			border-radius: 5px;
+			background-color: #fff;
+		}
+
+		.vco-storymap h2.vco-headline-title {
+			font-size: 1.5em;
+		}
+
+		.vco-headline,
+		.vco-storymap h2 {
+			font-size: 1.4em;
+		}
+
+		.vco-text p {
+			color: #333;
+		}
+
+		.vco-storymap p {
+			line-height: 1.25em;
+		}
+
+		/* leaflet elements */
+		.vco-map .leaflet-container .leaflet-control-attribution {
+			background:  rgba(255,255,255,0.80);
+			padding: 8px;
+			border-radius: 5px;
+		}
+
+		.vco-map .leaflet-container .leaflet-control-attribution a {
+			color: #00f;
+		}
+
+		/* Media Queries */
+		@media screen and (orientation: landscape) {
+			.vco-slide-content {
+				padding-left: 10px !important;
+				margin-right: -20px !important;
+			}
+		}
+
+		/* override zoom control being hidden */
+		@media screen and (max-width: 451px) {
+			.vco-mobile.vco-skinny .leaflet-control-zoom {
+				display: inherit;        
+			}
+
+			div.leaflet-top.leaflet-left {
+				margin-top: 20px;
+			}
+		}
+
+		@media screen and (max-width:768px) {
+			.vco-media .vco-media-content-container .vco-media-content img {
+				max-height: 250px;
+			}
+			
+			.vco-storymap p {
+				margin: 25px 0;
+				font-size: 1.05em;        
+				line-height: 1.5em;
+			}
+			
+			.vco-storymap p:first-child {
+				margin-top: 10px;
+			}
+			
+			.vco-storymap p:last-child {
+				margin-bottom: 10px;
+			}
+		}		
+	</style>    
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-102886497-1', 'auto');
+      ga('send', 'pageview');
+   </script>
+</head>
+<body>
+    <div id="meu_mapa"></div>
+    <!-- Código javascript -->
+    <!-- StoryMaps JS -->
+    <script type="text/javascript" src="https://cdn.knightlab.com/libs/storymapjs/latest/js/storymap-min.js"></script>
+    
+	<!-- ================Dados json em variáveis ==================================================================-->
+	<script type="text/javascript" id="le_codigo">"use strict";</script>
+	
+    <script type="application/json" id="variavel0">
+		{
+		  "storymap": {
+			"slides": [
+			  {
+				"type": "overview",
+				"text": {
+				  "headline": "O século XX",
+				  "text": "<p>Como neste século quase todos os impérios Cristãos foram abatidos.</p><p></p><p>A presença gradativa do modernismo disseminado pela Escola de Frankfurt <a href='https://pt.wikipedia.org/wiki/Escola_de_Frankfurt' target='_blank' rel='noopener'>Escola de Frankfurt</a> especialmente após a segunda guerra mundial.</p>"
+				},
+				"media": {
+				  "url": "https://i.ytimg.com/vi/7t1SCC4CvNE/maxresdefault.jpg",
+				  "caption": "Século XX"
+				}
+			  },
+			  {
+				"text": {
+				  "headline": "James Whitacre (President)",
+				  "text": "<p>James Whitacre is the GIS Research Scientist for Carnegie Museum of Natural History, where he primarily manages the GIS Lab at Powdermill Nature Reserve, the Museum’s environmental research center. For over a decade, the GIS Lab at Powdermill has produced numerous geospatial projects on the Nature Reserve and throughout the region in forest ecology, stream ecology, and avian research, among other topics. The GIS Lab also maintains numerous geospatial datasets that can be used for geospatial research and analysis. Additionally, Whitacre supports museum staff and affiliated researchers with geospatial technologies and needs.</p><p>This is Whitacre’s second appointment at the Museum as he was formerly the GIS Manager from 2011 to 2014. During that time, he was instrumental in developing the Pennsylvania Unconventional Natural Gas Wells dataset, which has been used in numerous research projects and publications. Whitacre’s professional interests include sUAS, photogrammetry, and Lidar applications for forest ecology; Python development and education in GIS; and the nexus of GIS and citizen science.</p><p>Before returning to the Museum in 2018, Whitacre was the GIS Specialist for the Main Library at the University of Illinois at Urbana-Champaign, where he provided GIS consultations for researchers and scholars, taught GIS workshops, managed the Library’s geospatial data, and served as a central resource for the University’s GIS community to promote the use of GIS in research. While in Illinois, Whitacre served as the Co-Chair of the University of Illinois GIS Day Planning Committee from 2014 to 2017. He was also an active member in the Illinois GIS Association (ILGISA) and served on the Education Committee in 2016. Whitacre holds a Bachelor of Arts in Zoology from Ohio Wesleyan University, and a Master of Science in Geography, concentrating on GIS and cartography, from Indiana University of Pennsylvania.</p>"
+				},
+				"location": {
+				  "lat": 40.16,
+				  "lon": -79.272,
+				  "zoom": 11
+				},
+				"media": {
+				  "url": "http://maps.pamagic.org/meet-the-board/assets/images/2017_Whitacre_James.png"
+				}
+			  },
+			  {
+				"text": {
+				  "headline": "Patrick McKinney (Webmaster)",
+				  "text": "<p>Patrick is a GIS Analyst for Cumberland County.  His responsibilities include maintaining enterprise datasets, providing technical assistance to county staff and municipal partners, and developing web and desktop mapping applications.  He is active presenting at professional conferences.  Working with Harrisburg University, Patrick founded the annual GeoDev Summit, a one-day event geared toward GIS developers.</p><p>Prior to working with Cumberland County, Patrick was a Planner with Lancaster County.  He has also worked with Indiana County’s Planning and Parks & Trails offices.  He is also a skilled musician, with a focus on bass and guitar.  He blogs regularly with his wife at <a href='https://mckinneypartyof5.life/' rel='noopener' target='_blank'>https://mckinneypartyof5.life/</a>.  If you’re ever in downtown Carlisle over the lunch hour, you may find Patrick running around town.</p>"
+				},
+				"location": {
+				  "lat": 40.201557,
+				  "lon": -77.189026,
+				  "zoom": 11
+				},
+				"media": {
+				  "url": "http://maps.pamagic.org/meet-the-board/assets/images/patrick-mckinney.jpg"
+				}
+			  }
+			]
+		  }
+		}
+	</script>
+
+    <script type="application/json" id="variavel1">
+		{
+			"language": "en",
+			"map_type": "osm:standard",
+			"calculate_zoom": false
+		}
+	</script>
+
+    <script type="application/json" id="variavel2">
+		
+	</script>
+
+    <!-- ================Aplicação ==================================================================-->
+    <script>
+		const  dados_mapa = JSON.parse(document.getElementById('variavel0').innerHTML);	
+		const opcoes_mapa = JSON.parse(document.getElementById('variavel1').innerHTML);		
+		const storymap    = new VCO.StoryMap('meu_mapa', dados_mapa, opcoes_mapa);
+	
+		// Determina se o usuário está acessando de um telefone ou pc
+		const detectDeviceType = () =>
+		  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+			? 'Mobile'
+			: 'Desktop';
+
+		// Função para adicionat texto alternativos às imagens
+		function addAltTextToImage() {
+			const currentSlide   = storymap.current_slide;
+			const slideImage     = document.getElementsByClassName('vco-media-image')[currentSlide];
+			const headlineText   = document.getElementsByClassName('vco-headline')[currentSlide].textContent;
+			
+			slideImage.alt = headlineText;
+		}
+
+		// Atualiza Display toda vez que a janel for recarregada.
+		window.onresize = function(event) { storymap.updateDisplay(); }
+
+
+		// ao mudar de slides adiciona o atributo alt
+		storymap.on("change", addAltTextToImage);
+
+		// evento disparado quando o storymap é carregado
+		storymap.on("loaded", function() {
+			const leafletMap = storymap.map;
+			const zoomControl = L.control.zoom({position:'topleft'}).addTo(leafletMap);
+			var userDevice = detectDeviceType();
+			if (userDevice === 'Desktop') {
+				addAltTextToImage();
+			}
+		});
+
+    </script>
+    <!-- ================   fim    ==================================================================-->
+</body>
+</html>
